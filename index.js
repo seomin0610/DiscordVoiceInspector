@@ -182,9 +182,6 @@ client.on(Events.VoiceStateUpdate, (oldState, newState) => {
           adapterCreator: voiceChannel.guild.voiceAdapterCreator,
           selfDeaf: false,
         });
-        // 음성 감지 세션 활성화
-        // const speech = new SpeechRecognition(connection, client); // 이 부분은 삭제
-        // speech.start(); // 이 부분은 삭제
 
         console.log(`봇이 ${voiceChannel.name} 채널에 입장했습니다.`);
       }
@@ -194,7 +191,6 @@ client.on(Events.VoiceStateUpdate, (oldState, newState) => {
 
 client.on(SpeechEvents.speech, async (msg) => {
   if (!msg.content) return;
-  console.log(`${msg.member.user.tag} said: ${msg.content}`);
   const content = msg.content.toLowerCase();
   
   if (
